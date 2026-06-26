@@ -4,6 +4,8 @@
 
 ### Dental clinic SaaS — online reservations, family accounts, admin dashboard, i18n ES / EN / DE / FR
 
+![Hero](https://raw.githubusercontent.com/itzSecretProject/SmileAtelier/main/screenshots/01-hero.png)
+
 <br>
 
 [![Stars](https://img.shields.io/github/stars/itzSecretProject/SmileAtelier?color=3b78ff&style=for-the-badge&logo=github&logoColor=white)](https://github.com/itzSecretProject/SmileAtelier/stargazers)
@@ -19,6 +21,19 @@
 ## Overview
 
 SmileAtelier is a complete dental clinic website built to be sold as a ready-to-deploy product. It covers everything a real practice needs: a landing page that converts, an online booking system with family account support and a SaaS-style admin panel with live analytics.
+
+---
+
+## Screenshots
+
+![Treatments](https://raw.githubusercontent.com/itzSecretProject/SmileAtelier/main/screenshots/02-treatments.png)
+
+![Admin](https://raw.githubusercontent.com/itzSecretProject/SmileAtelier/main/screenshots/04-admin.png)
+
+<div align="center">
+<img src="https://raw.githubusercontent.com/itzSecretProject/SmileAtelier/main/screenshots/03-testimonials.png" width="48%"/>
+<img src="https://raw.githubusercontent.com/itzSecretProject/SmileAtelier/main/screenshots/05-mobile.png" width="24%"/>
+</div>
 
 ---
 
