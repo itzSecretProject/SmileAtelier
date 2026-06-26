@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+:root {
+  /* Ink / structural */
+  --navy: #0b1a3a;
+  --navy-light: #16284f;
+  --ink: #0e1b34;
+
+  /* Brand blue */
+  --blue: #2f6bff;
+  --blue-light: #5b8cff;
+  --blue-soft: #e8f0ff;
+
+  /* Surfaces */
+  --cream: #eef3fb;
+  --off-white: #f6f9fe;
+  --paper: #ffffff;
+
+  /* Text */
+  --text: #0e1b34;
+  --text-muted: #5b6780;
+
+  /* Accent */
+  --accent: #d9b779;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+
+  /* Elevation */
+  --shadow-soft: 0 8px 30px rgba(13, 30, 70, 0.06);
+  --shadow-card: 0 18px 50px -12px rgba(13, 30, 70, 0.18);
+  --shadow-float: 0 24px 60px -20px rgba(13, 30, 70, 0.35);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background:
+    radial-gradient(ellipse 90% 60% at 50% -10%, #e4eeff 0%, transparent 60%),
+    var(--off-white);
+  color: var(--text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+::selection {
+  background: var(--blue);
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 9px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #c3d2ef; border-radius: 999px; border: 2px solid var(--off-white); }
+::-webkit-scrollbar-thumb:hover { background: var(--blue-light); }
+
+/* Noise texture overlay */
+.noise::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.35;
+}
+
+/* ── Glass surfaces ── */
+.glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+}
+
+/* Glossy floating dock (navbar) */
+.dock {
+  background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(243,247,255,0.92) 100%);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow:
+    0 1px 0 0 rgba(255,255,255,0.9) inset,
+    0 22px 50px -18px rgba(13, 30, 70, 0.30),
+    0 4px 12px -4px rgba(13, 30, 70, 0.12);
+}
+
+/* Decorative grid backdrop */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(47,107,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(47,107,255,0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 0%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 0%, transparent 75%);
+}
+
+/* Gradient text */
+.text-gradient {
+  background: linear-gradient(120deg, var(--blue) 0%, #7aa0ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Float + spin keyframes */
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.animate-float { animation: float-y 6s var(--ease-out-quart) infinite; }
+.animate-spin-slow { animation: spin-slow 28s linear infinite; }
+
+.eyebrow {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
